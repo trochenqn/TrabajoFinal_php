@@ -1,11 +1,9 @@
 <?php
 /******************************************
 *Completar:
-* NOMBRE Y APELLIDOS - LEGAJOS
+* ANGEL ADRIAN MELILLAN - FAI-3139
+* JOSE LUIS TROCHE - 108488
 ******************************************/
-
-
-
 
 /**
 * genera un arreglo de palabras para jugar
@@ -13,38 +11,52 @@
 */
 function cargarPalabras(){
   $coleccionPalabras = array();
-  $coleccionPalabras[0]= array("palabra"=> "papa" , "pista" => "se cultiva bajo tierra", "puntosPalabra"=>7);
-  $coleccionPalabras[1]= array("palabra"=> "hepatitis" , "pista" => "enfermedad que inflama el higado", "puntosPalabra"=> 7);
+  $coleccionPalabras[0]= array("palabra"=> "papa" , "pista" => "se cultiva bajo tierra", "puntosPalabra"=>5);
+  $coleccionPalabras[1]= array("palabra"=> "hepatitis" , "pista" => "enfermedad que inflama el higado", "puntosPalabra"=> 8);
   $coleccionPalabras[2]= array("palabra"=> "volkswagen" , "pista" => "marca de vehiculo", "puntosPalabra"=> 10);
-  
+  $coleccionPalabras[3]= array("palabra"=> "rock" , "pista" => "genero musical", "puntosPalabra"=> 4);
+  $coleccionPalabras[4]= array("palabra"=> "avioneta" , "pista" => "se encuentra en un hangar", "puntosPalabra"=> 7);
+  $coleccionPalabras[5]= array("palabra"=> "minotauro" , "pista" => "bestia de la mitologia griega", "puntosPalabra"=> 8);
+  $coleccionPalabras[6]= array("palabra"=> "leon" , "pista" => "rey de la selva", "puntosPalabra"=> 6);
+  $coleccionPalabras[7]= array("palabra"=> "netflix" , "pista" => "plataforma de entretenimiento online", "puntosPalabra"=> 7);
   /*>>> Agregar al menos 4 palabras más <<<*/
-  
   return $coleccionPalabras;
 }
-
 /**
+ * genera un arreglo de letras para jugar 
+ * @return array
+ */
+function cargarLetras(){
+    $coleccionLetras = array();
+    $coleccionLetras [0] = array("letra" => "l", "descubierta" => true);
+    $coleccionLetras [1] = array("letra" => "e", "descubierta" => true);
+    $coleccionLetras [2] = array("letra" => "o", "descubierta" => true);
+    $coleccionLetras [3] = array("letra" => "n", "descubierta" => true);
+    return $coleccionLetras;
+}
+/**
+ * determina los puntos que ganó el jugador
+ * @return array
 * /*>>> completar comentario <<<*/
-* 
-*/
 function cargarJuegos(){
 	$coleccionJuegos = array();
 	$coleccionJuegos[0] = array("puntos"=> 0, "indicePalabra" => 1);
 	$coleccionJuegos[1] = array("puntos"=> 10,"indicePalabra" => 2);
     $coleccionJuegos[2] = array("puntos"=> 0, "indicePalabra" => 1);
     $coleccionJuegos[3] = array("puntos"=> 8, "indicePalabra" => 0);
-    
-    /*>>> Agregar al menos 3 juegos realizados más <<<*/
-    
+    $coleccionJuegos[4] = array("puntos"=> 5,"indicePalabra" => 7);
+    $coleccionJuegos[5] = array("puntos"=> 8, "indicePalabra" => 5);
+    $coleccionJuegos[6] = array("puntos"=> 10, "indicePalabra" => 6);
+    /*>>> Agregar al menos 3 juegos realizados más <<<*/ 
     return $coleccionJuegos;
 }
-
 /**
 * a partir de la palabra genera un arreglo para determinar si sus letras fueron o no descubiertas
 * @param string $palabra
 * @return array
 */
 function dividirPalabraEnLetras($palabra){
-    
+
     /*>>> Completar para generar la estructura de datos b) indicada en el enunciado. 
           recuerde que los string pueden ser recorridos como los arreglos.  <<<*/
     
@@ -93,6 +105,8 @@ function existePalabra($coleccionPalabras,$palabra){
 */
 function existeLetra(/*>>> Completar parámetros <<<*/ ){
     
+
+
     /*>>> Completar cuerpo de la función <<<*/
 
 }
@@ -109,7 +123,6 @@ function existeLetra(/*>>> Completar parámetros <<<*/ ){
 /**
 * Obtener indice aleatorio
 * /*>>> Completar documentacion <<<*/
-*/
 function indiceAleatorioEntre($min,$max){
     $i = rand($min,$max); // /*>>> documente qué hace la función rand según el manual php.net en internet <<<*/
     return $i;
@@ -144,7 +157,7 @@ function palabraDescubierta($coleccionLetras){
 
 /**
 * /*>>> Completar documentacion <<<*/
-*/
+
 function solicitarLetra(){
     $letraCorrecta = false;
     do{
