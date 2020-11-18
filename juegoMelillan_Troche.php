@@ -8,7 +8,7 @@
 
 
 /**
-* genera un arreglo de palabras para jugar...
+* genera un arreglo de palabras para jugar
 * @return array
 */
 function cargarPalabras(){
