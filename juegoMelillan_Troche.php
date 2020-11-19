@@ -57,8 +57,9 @@ function cargarJuegos(){
 */
 function dividirPalabraEnLetras($palabra){
 
-    /*>>> Completar para generar la estructura de datos b) indicada en el enunciado. 
-          recuerde que los string pueden ser recorridos como los arreglos.  <<<*/
+
+
+    
     
 }
 
