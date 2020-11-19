@@ -349,7 +349,7 @@ define("CANT_INTENTOS", 6); //Constante en php para cantidad de intentos que ten
 do{
     $opcion = seleccionarOpcion();
     switch ($opcion) {
-    case 1: //Jugar con una palabra aleatoria...
+    case 1: //Jugar con una palabra aleatoria
 
         break;
     case 2: //Jugar con una palabra elegida
