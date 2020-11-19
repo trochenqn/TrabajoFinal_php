@@ -66,6 +66,8 @@ function dividirPalabraEnLetras($palabra){
     }
 //print_r($coleccionLetras);
 return $coleccioneLetras;
+    
+
 }
 /**
 * muestra y obtiene una opcion de menú ***válida***
@@ -114,6 +116,7 @@ function existePalabra($coleccionPalabras,$palabra){
 * @param string $letra
 * @return boolean
 */
+
 function existeLetra($coleccionLetras,$letra){
     // Variable interna: boolean $encontrado
     $encontrado = false; 
@@ -122,6 +125,13 @@ function existeLetra($coleccionLetras,$letra){
         $encontrado = true;
     }
     return $encontrado;
+function existeLetra(/*>>> Completar parámetros <<<*/ ){
+    
+
+
+    /*>>> Completar cuerpo de la función <<<*/
+
+
 }
 
 /**
