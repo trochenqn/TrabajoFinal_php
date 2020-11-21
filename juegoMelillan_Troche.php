@@ -269,7 +269,8 @@ function destaparLetra($coleccionLetras, $letra){
 //(14)
 function stringLetrasDescubiertas($coleccionLetras){
     //Variable interna: string $pal
-    $pal= " ";
+
+  $pal= " ";
     $i=0;
     $contador = count($coleccionLetras);
     while ($i <=  $contador ){
@@ -283,10 +284,9 @@ function stringLetrasDescubiertas($coleccionLetras){
 
     $pal = trim($pal);
     
+
     return $pal;
 }
-
-
 /**
 * Desarrolla el juego y retorna el puntaje obtenido
 * Si descubre la palabra se suma el puntaje de la palabra más la cantidad de intentos que quedaron
@@ -401,7 +401,7 @@ do{
     case 6: //Mostrar la información completa del primer juego que supere un puntaje indicado por el usuario
 
         break;
-    case 7: //Mostrar la lista de palabras ordenada por orden alfabetico
+    case 7: //Mostrar la lista de palabras ordenada por orden alfabetico.....
 
         break;
     }
