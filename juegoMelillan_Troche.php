@@ -381,12 +381,13 @@ function puntajeMayor($coleccionJuegos){
     }
 }
 
-/*>>> Implementar las funciones necesarias para la opcion 6 del menú <<<*/ // (19)
+/*>>> Implementar las funciones necesarias para la opcion 6 del menú <<<*/ 
 /**
  * 
  * @param array $coleccionJuegos
  * @param array $puntajeSolicitado
  */
+// (19)
 function superePuntajeSolicitado($coleccionJuegos,$puntajeSolicitado){
     if ($puntajeSolicitado <= 10){
         if (($coleccionJuegos[$i]["puntos"])  > $puntajeSolicitado){
