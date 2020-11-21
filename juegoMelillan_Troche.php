@@ -396,11 +396,13 @@ function superePuntajeSolicitado($coleccionJuegos,$puntajeSolicitado){
             echo "No se encontró un juego en el que su puntaje haya sido superado. Por favor ingrese otro puntaje. "."\n";
         }
     }else{
-        echo "Error, ingresó un puntaje más alto del que es posible generar. Por favor ingrese otro puntaje. \n";
+        $error = -1;
     }
+    return $error;
 }
 
 /*>>> Implementar las funciones necesarias para la opcion 7 del menú <<<*/ // (20)
+
 
 
 
