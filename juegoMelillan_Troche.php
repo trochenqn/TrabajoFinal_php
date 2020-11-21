@@ -387,6 +387,7 @@ function puntajeMayor($coleccionJuegos){
  * @param array $coleccionJuegos
  * @param array $puntajeSolicitado
  */
+// (19)
 function superePuntajeSolicitado($coleccionJuegos,$puntajeSolicitado){
     if ($puntajeSolicitado <= 10){
         if (($coleccionJuegos[$i]["puntos"])  > $puntajeSolicitado){
