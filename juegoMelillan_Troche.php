@@ -418,10 +418,14 @@ function superePuntajeSolicitado($coleccionJuegos,$puntajeSolicitado){
 }
 
 /*>>> Implementar las funciones necesarias para la opcion 7 del menú <<<*/ // (20)
-
-
-
-
+/**
+ * Ordena la lista de palabras en orden alfabetico
+ * @param array $coleccionPalabras
+ */
+function ordenarPalabrasAlfabeticamente($coleccionPalabras){
+    sort($coleccionPalabras);
+    print_r ($coleccionPalabras); // La función print_r imprime información sobre la variable de forma "legible para humanos"
+}
 
 /************************************************/
 /************** PROGRAMA PRINCIAL *********/
