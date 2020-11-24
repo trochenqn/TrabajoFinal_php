@@ -254,7 +254,7 @@ function destaparLetra($coleccionLetras, $letra){
  
     for($i = 0; $i < strlen($coleccionLetras); $i++){
         if($coleccionLetras[$i]["letra"] == $letra){
-           $coleccionLetras[$i]= array("letra"=> $letra , "descubierta" => true);
+           $coleccionLetras[$i] = array("letra" => $letra , "descubierta" => true);
            print_r($coleccionLetras);
         }
      }
@@ -314,7 +314,7 @@ function jugar($coleccionPalabras, $indicePalabra, $cantIntentos){
     echo "\n ---------------------------------------------- \n";
     echo "\n Ingrese una letra: ". $letra= solicitarLetra();
     $coleccionLetras= destaparLetra($coleccionLetras, $letra);
-    if ($coleccionLetras[$i]["descubierta"]== true){
+    if ($coleccionLetras[$i]["descubierta"] == true){
         echo "\n La Letra". $letra ."PERTENECE a la palabra";
     }else{
         echo "\n La Letra". $letra ."NO pertenece a la palabra. Quedan". --$cantIntentos . "intentos";
