@@ -414,8 +414,9 @@ function puntajeMayor($coleccionJuegos){
 function superePuntajeSolicitado($coleccionJuegos,$puntajeSolicitado){
     $coleccionDeJuegosPuntaje = cargarJuegos();
     $coleccionDePalabrasPuntaje = cargarPalabras();
-    $indiceAuxiliar = 0;
-    $indiceDeJuego = ($indiceAuxiliar >= 0 && $indiceAuxiliar <= 7);
+    $indiceAuxiliarMenor = 0;
+    $indiceAuxiliarMayor = 7;
+    $indiceDeJuego = count($coleccionJuegos[0]);
     $puntajeMayorAuxiliar = $coleccionJuegos[0];
     $error = 0;
     if ($puntajeSolicitado <= 10){
