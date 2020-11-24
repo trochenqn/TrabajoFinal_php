@@ -204,7 +204,7 @@ function palabraDescubierta($coleccionLetras){
   //Variable interna: boolean $auxiliar
     $auxiliar = false;
     $numero1 = count($coleccionLetras);
-    $numero1 =   --$numero1;
+   // $numero1 =   --$numero1;
     $numero2 = 0;
     foreach($coleccionLetras as $clave => $valor){
         if($valor["descubierta"] == !($auxiliar)){
@@ -217,6 +217,7 @@ function palabraDescubierta($coleccionLetras){
      }else{
         $auxiliar = false; // En el caso que $numero2 y $numero1  no son iguales, eso significa que la palabra no ha sido descubierta.
      }
+ 
     return $auxiliar;
  }
 
@@ -304,31 +305,38 @@ function stringLetrasDescubiertas($coleccionLetras){
 function jugar($coleccionPalabras, $indicePalabra, $cantIntentos){
     $pal = $coleccionPalabras[$indicePalabra]["palabra"];
     $coleccionLetras = dividirPalabraEnLetras($pal); //4
-    //print_r($coleccionLetras);
+  //  print_r($coleccionLetras);
     $puntaje = 0;
-     $i=1;    
-   // echo "\n ---------------------------------------------- \n";
-    //solicitarIndiceEntre($min,$max);
-    //echo "\n Seleccione un indice entre 9 y 2 : ". $indicePalabra;
+     $i=0; 
+     
     echo "\n PISTA:  ".  $coleccionPalabras[$indicePalabra]["pista"] ." \n";
-    
     $palabraFueDescubierta=false;
-    //una de las dos expresiones tiene que tomar true para salir.
-    while (($cantIntentos >= $i) || (false<>$palabraFueDescubierta)){
+    while (($cantIntentos > $i) <> ($palabraFueDescubierta<>false)){
+      $corresponde=1; 
+      $j=0;  
     echo "\n ---------------------------------------------- \n";
-    echo "\n Ingrese una letra: ". $letra= solicitarLetra();
-    $coleccionLetras= destaparLetra($coleccionLetras, $letra);
-    if ($coleccionLetras[$i]["descubierta"]== true){
-        echo "\n La Letra ". $letra ."PERTENECE a la palabra \n";
-    }else{
-        echo "\n La Letra". $letra ." NO pertenece a la palabra. Quedan ". --$cantIntentos . "intentos ";
-    }
-
+      $letra= solicitarLetra();
+      $coleccionLetras= destaparLetra($coleccionLetras, $letra);
+   
+    while ($j< count($coleccionLetras)) {
+  
+      if (($coleccionLetras[$j]["letra"]== $letra) && ($coleccionLetras[$j]["descubierta"]== true) ){
+            $corresponde=0;
+      }
+          $j++;
+      }
+  
+      if ($corresponde==0){
+        echo "\n La Letra ". $letra ."PERTENECE a la palabra";
+         }else{
+        echo "\n La Letra ". $letra ." NO pertenece a la palabra. Quedan". --$cantIntentos . "intentos";
+        }
+   
     echo "\n Palabra a Descubrir: ". stringLetrasDescubiertas($coleccionLetras);
     echo "\n ---------------------------------------------- \n";
        
     $palabraFueDescubierta= palabraDescubierta($coleccionLetras);
-    }
+      }
        //solicitar letras mientras haya intentos y la palabra no haya sido descubierta:
     If($palabraFueDescubierta){
         //obtener puntaje:
@@ -436,7 +444,14 @@ do{
     $opcion = seleccionarOpcion();
     switch ($opcion) {
     case 1: //Jugar con una palabra aleatoria
+        echo "\n ---------------------------------------------- \n";
 
+        $coleccionPalabras = cargarPalabras();
+        $min= 0;
+        $max = count($coleccionPalabras);
+        $indicePalabra =  indiceAleatorioEntre($min,--$max);
+        $cantIntentos = CANT_INTENTOS;
+        jugar($coleccionPalabras, $indicePalabra, $cantIntentos);
         break;
     case 2: //Jugar con una palabra elegida
         echo "\n ---------------------------------------------- \n";
@@ -447,7 +462,6 @@ do{
         $indicePalabra = solicitarIndiceEntre($min,--$max);
         $cantIntentos = CANT_INTENTOS;
         jugar($coleccionPalabras, $indicePalabra, $cantIntentos);
-
         break;
     case 3: //Agregar una palabra al listado
        $coleccionPalabras = cargarPalabras();
