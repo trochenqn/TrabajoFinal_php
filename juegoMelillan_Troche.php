@@ -396,7 +396,7 @@ function puntajeMayor($coleccionJuegos){
     $coleccionDeJuegosPuntaje = cargarJuegos();
     $coleccionDePalabrasPuntaje = cargarPalabras();
     $indiceAuxiliar = 0;
-    $indiceDeJuego = ($indiceAuxiliar >= 0 && $indiceAuxiliar <= 7);
+    $indiceDeJuego = (($indiceAuxiliar >= 0) && ($indiceAuxiliar <= 7));
     $puntajeMayorAuxiliar = $coleccionJuegos[0];
     $mayor = 0;
         if ($puntajeMayorAuxiliar > $mayor) {
