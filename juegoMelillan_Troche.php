@@ -259,7 +259,6 @@ function stringLetrasDescubiertas($coleccionLetras){
     $auxiliarLetrasDescubiertas = 0;
     $contadorLetras = count($coleccionLetras);
     $contadorLetras = -- $contadorLetras;
-    print_r($coleccionLetras[$auxiliarLetrasDescubiertas ]["descubierta"]); // print_r — Imprime información "legible para humanos" sobre una variable.
     while ($auxiliarLetrasDescubiertas <=  $contadorLetras ){
         if ( $coleccionLetras[$auxiliarLetrasDescubiertas]["descubierta"]){
             $pal .= $coleccionLetras[$auxiliarLetrasDescubiertas]["letra"];
@@ -494,8 +493,9 @@ function superePuntajeSolicitado($coleccionJuegos,$puntajeSolicitado){
  * @param array $coleccionPalabras
  */
 function ordenarPalabrasAlfabeticamente($coleccionPalabras){
-    sort($coleccionPalabras);
-    print_r ($coleccionPalabras); // La función print_r imprime información sobre la variable de forma "legible para humanos"
+    sort($coleccionPalabras); // Ordena los elementos de menor a mayor. 
+                                                    // Elimina cualquier clave existente y asigna nuevos índices a partir del 0
+    print_r ($coleccionPalabras); // print_r — Imprime información "legible para humanos" sobre una variable.
 }
 
 /************************************************/
