@@ -114,7 +114,7 @@ function existePalabra($coleccionPalabras,$palabra){
     $cantPal = count($coleccionPalabras); // count — Cuenta todos los elementos de un array.
     $existe = false;
     while($auxiliarExistePalabra < $cantPal && !$existe){
-        $existe = $coleccionPalabras[$i]["palabra"] == $palabra;
+        $existe = $coleccionPalabras[$auxiliarExistePalabra]["palabra"] == $palabra;
         $auxiliarExistePalabra++;
     }
     return $existe;
@@ -295,9 +295,9 @@ function stringLetrasDescubiertas($coleccionLetras){
 */
 // (14)
 function jugar($coleccionPalabras, $indicePalabra, $cantIntentos){
-
+    
     $palabras = $coleccionPalabras[$indicePalabra]["palabra"];
-    $coleccionLetrasJugar = dividirPalabraEnLetras($pal); //4
+    $coleccionLetrasJugar = dividirPalabraEnLetras($palabras); //4
     $puntaje = 0;
     $auxiliarJugar = 0; 
     echo "\n PISTA:  ".  $coleccionPalabras[$indicePalabra]["pista"] ." \n";
@@ -366,7 +366,7 @@ function jugar($coleccionPalabras, $indicePalabra, $cantIntentos){
     If($palabraFueDescubierta){
         //obtener puntaje:
         $puntaje = $coleccionPalabras[$indicePalabra]["puntosPalabra"];    
-        echo "\n            ¡¡¡¡¡¡GANASTE ". $puntaje ." puntos!!!!!!\n";
+        echo "\n              ¡¡¡¡¡¡GANASTE ". $puntaje ." puntos!!!!!!\n";
     }else{               
         echo "\n           ¡¡¡¡¡¡AHORCADO AHORCADO!!!!!!\n";
         echo "                        +---+ "."\n";
@@ -400,7 +400,7 @@ function agregarJuego($coleccionJuegos,$puntos,$indicePalabra){
 // (16)
 function mostrarPalabra($coleccionPalabras,$indicePalabra){
       //$coleccionPalabras[0]= array("palabra"=> "papa" , "pista" => "se cultiva bajo tierra", "puntosPalabra"=>7);
-    echo '    Palabra: '. $coleccionPalabras[$indicePalabra]["palabra"]."  \n ". '   Pista: '.$coleccionPalabras[$indicePalabra]["pista"]."\n". '    Puntos de la palabra: '.$coleccionPalabras[$indicePalabra] ["puntosPalabra"]."\n";
+    echo '                 Palabra: '. $coleccionPalabras[$indicePalabra]["palabra"]."  \n ". '                Pista: '.$coleccionPalabras[$indicePalabra]["pista"]."\n". '                 Puntos de la palabra: '.$coleccionPalabras[$indicePalabra] ["puntosPalabra"]."\n";
 }
 
 /**
@@ -413,9 +413,9 @@ function mostrarPalabra($coleccionPalabras,$indicePalabra){
 function mostrarJuego($coleccionJuegos,$coleccionPalabras,$indiceJuego){
     //array("puntos"=> 8, "indicePalabra" => 1)
     echo "\n\n";
-    echo "<-<-< Juego ".$indiceJuego." >->->\n";
-    echo "  Puntos ganados: ".$coleccionJuegos[$indiceJuego]["puntos"]."\n";
-    echo "  Información de la palabra:\n";
+    echo "               <-<-< Juego ".$indiceJuego." >->->\n";
+    echo "                Puntos ganados: ".$coleccionJuegos[$indiceJuego]["puntos"]."\n";
+    echo "                Información de la palabra:\n";
     mostrarPalabra($coleccionPalabras,$coleccionJuegos[$indiceJuego]["indicePalabra"]);
     echo "\n";
 }
