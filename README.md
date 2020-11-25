@@ -11,8 +11,8 @@ TP final de la materia Introducción a la Programación 2020.
     TRABAJO FINAL.
 Melillan & Troche <br /> 
          +---+  <br /> 
-          |     |  <br /> 
-         o      |   <br /> 
-        /|\     |     <br /> 
-        / \     |      <br /> 
-                |   <br /> 
+          |  &nbsp;   |  <br /> 
+         o    &nbsp;  |   <br /> 
+        /|\ &nbsp;    |     <br /> 
+        / \  &nbsp;   |      <br /> 
+              &nbsp;  |   <br /> 
