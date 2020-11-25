@@ -12,7 +12,7 @@ TP final de la materia Introducción a la Programación 2020.
 Melillan & Troche <br /> 
       &nbsp;    +---+  <br /> 
     &nbsp;     &nbsp; &nbsp;   |   &nbsp;&nbsp;   |  <br /> 
-         &nbsp; &nbsp; o    &nbsp;  |   <br /> 
+        &nbsp;   &nbsp; &nbsp; o    &nbsp;  |   <br /> 
          &nbsp; &nbsp; /|\ &nbsp;    |     <br /> 
          &nbsp; &nbsp; / \  &nbsp;   |      <br /> 
      &nbsp; &nbsp;   &nbsp; &nbsp;&nbsp;  |   <br /> 
