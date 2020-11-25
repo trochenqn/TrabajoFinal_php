@@ -486,11 +486,12 @@ function superePuntajeSolicitado($coleccionJuegos,$puntajeSolicitado){
     }
     return $indicePuntaje;
 }
-// (20)
+
 /**
  * Ordena la lista de palabras en orden alfabetico
  * @param array $coleccionPalabras
  */
+// (20)
 function ordenarPalabrasAlfabeticamente($coleccionPalabras){
     sort($coleccionPalabras); // Ordena los elementos de menor a mayor. 
                                                     // Elimina cualquier clave existente y asigna nuevos índices a partir del 0
