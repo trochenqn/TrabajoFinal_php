@@ -421,10 +421,6 @@ function mostrarPalabra($coleccionPalabras,$indicePalabra){
 // (17)
 function mostrarJuego($coleccionJuegos,$coleccionPalabras,$indiceJuego){
     //array("puntos"=> 8, "indicePalabra" => 1)
-    if ($indiceJuego == -1){
-        echo "\n";
-        echo " -1 \n";
-    }else{
         echo "\n";
         echo "  *********************************************************** \n";
         echo "  *                                                         * \n";
@@ -435,7 +431,6 @@ function mostrarJuego($coleccionJuegos,$coleccionPalabras,$indiceJuego){
         echo "  *                                                         * \n";
         echo "  *********************************************************** \n";
         echo "\n";
-    }
 }
 
 // (18)
