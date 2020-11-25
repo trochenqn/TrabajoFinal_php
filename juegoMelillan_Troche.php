@@ -432,12 +432,12 @@ function mostrarJuego($coleccionJuegos,$coleccionPalabras,$indiceJuego){
         echo "\n";
 }
 
-// (18)
 /**
  * Refleja el mayor puntaje de la partida.
  * @param array $coleccionJuegos
  * @return int
  */
+// (18)
 function puntajeMayor($coleccionJuegos){
     //Variables internas: array $contadorPuntaje, $coleccionDePuntos,
     //Variables internas int $auxiliarPuntajeMayor, $auxiliarPuntos.
@@ -459,7 +459,6 @@ function puntajeMayor($coleccionJuegos){
     return $indiceDePuntajes;
 }
 
- // (19)
 /**
  * Refleja el puntaje mayor al que solicito el usuario.
  * @param array $coleccionJuegos.
