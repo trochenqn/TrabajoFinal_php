@@ -188,9 +188,9 @@ function indiceAleatorioEntre($min,$max){
 function solicitarIndiceEntre($min,$max){ 
     do{
         echo "Seleccione un valor entre $min y $max: ";
-        $i = trim(fgets(STDIN));
-    }while(! ($i >= $min && $i <= $max));
-    return $i;
+        $indice = trim(fgets(STDIN));
+    }while(! ($indice >= $min && $indice <= $max));
+    return $indice;
 }
 
 /**
@@ -256,8 +256,8 @@ function destaparLetra($coleccionLetras, $letra){
  
     for($i = 0; $i < count($coleccionLetras); $i++){
         if($coleccionLetras[$i]["letra"] == $letra){
-           $coleccionLetras[$i]= array("letra"=> $letra , "descubierta" => true);
-          // print_r($coleccionLetras);
+           $coleccionLetras[$i] = array("letra" => $letra , "descubierta" => true);
+           print_r($coleccionLetras);
         }
      }
   return $coleccionLetras;
@@ -372,7 +372,7 @@ function agregarJuego($coleccionJuegos,$puntos,$indicePalabra){
 function mostrarPalabra($coleccionPalabras,$indicePalabra){
       
       //$coleccionPalabras[0]= array("palabra"=> "papa" , "pista" => "se cultiva bajo tierra", "puntosPalabra"=>7);
-    echo 'palabra: '. $coleccionPalabras[$indicePalabra]["palabra"]. 'pista: '.$coleccionPalabras[$indicePalabra]["pista"]. 'Puntos de la palabra: '.$coleccionPalabras[$indicePalabra] ["puntosPalabra"];
+    echo '    Palabra: '. $coleccionPalabras[$indicePalabra]["palabra"]."  \n ". '   Pista: '.$coleccionPalabras[$indicePalabra]["pista"]."\n". '    Puntos de la palabra: '.$coleccionPalabras[$indicePalabra] ["puntosPalabra"]."\n";
 }
 
 
@@ -400,12 +400,17 @@ function mostrarJuego($coleccionJuegos,$coleccionPalabras,$indiceJuego){
  * @param array $coleccionJuegos
  */
 function puntajeMayor($coleccionJuegos){
-    // Variables internas: int $puntajeMayorAuxiliar
-    $puntajeMayorAuxiliar = 0;
-    if (($coleccionJuegos[$i]["puntos"]) > $puntajeMayorAuxiliar) {
-        $puntajeMayorAuxiliar = $coleccionJuegos[$i]["puntos"];
-       echo "El puntaje mayor es: ".$puntajeMayorAuxiliar."\n";
-    }
+    // Variables internas: array $puntajeMayorAuxiliar, $coleccionDeJuegosPuntaje, $coleccionDePalabrasPuntaje
+    // Variables internas: int $indiceAuxiliar, $indiceDeJuego, $mayor
+    $coleccionDeJuegosPuntaje = cargarJuegos();
+    $coleccionDePalabrasPuntaje = cargarPalabras();
+    $indiceAuxiliar = 0;
+    $indiceDeJuego = (($indiceAuxiliar >= 0) && ($indiceAuxiliar <= 7));
+    $puntajeMayorAuxiliar = $coleccionJuegos[0];
+    $mayor = 0;
+        if ($puntajeMayorAuxiliar > $mayor) {
+            mostrarJuego($coleccionDeJuegosPuntaje, $coleccionDePalabrasPuntaje, $indiceDeJuego);
+        }
 }
 
 /*>>> Implementar las funciones necesarias para la opcion 6 del menú <<<*/ // (19)
@@ -416,24 +421,36 @@ function puntajeMayor($coleccionJuegos){
  */
 // (19)
 function superePuntajeSolicitado($coleccionJuegos,$puntajeSolicitado){
+    $coleccionDeJuegosPuntaje = cargarJuegos();
+    $coleccionDePalabrasPuntaje = cargarPalabras();
+    $indiceAuxiliarMenor = 0;
+    $indiceAuxiliarMayor = 7;
+    $indiceDeJuego = count($coleccionJuegos[0]);
+    $puntajeMayorAuxiliar = $coleccionJuegos[0];
+    $error = 0;
     if ($puntajeSolicitado <= 10){
-        if (($coleccionJuegos[$i]["puntos"])  > $puntajeSolicitado){
-            echo "El juego fue: Palabra: ". $coleccionPalabras[$indicePalabra]["palabra"]. "Pista: ".$coleccionPalabras[$indicePalabra]["pista"]."\n";
-            echo "Generando un puntaje de: ".$coleccionPalabras[$indicePalabra] ["puntosPalabra"]."\n";
-        }else{
-            echo "No se encontró un juego en el que su puntaje haya sido superado. Por favor ingrese otro puntaje. "."\n";
+        foreach ($puntajeMayorAuxiliar as $key) {
+            if ($puntajeMayorAuxiliar > $puntajeSolicitado) {
+                mostrarJuego($coleccionDeJuegosPuntaje,$coleccionDePalabrasPuntaje,$indiceDeJuego);
+            }
         }
-    }else{
-        $error = -1;
-    }
+     }else{
+          $error = -1;
+          echo "  \n".$error."\n"."\n";
+     }
     return $error;
 }
 
 /*>>> Implementar las funciones necesarias para la opcion 7 del menú <<<*/ // (20)
+/**
+ * Ordena la lista de palabras en orden alfabetico
+ * @param array $coleccionPalabras
+ */
+function ordenarPalabrasAlfabeticamente($coleccionPalabras){
+    sort($coleccionPalabras);
+    print_r ($coleccionPalabras); // La función print_r imprime información sobre la variable de forma "legible para humanos"
 
-
-
-
+}
 
 /************************************************/
 /************** PROGRAMA PRINCIAL *********/
@@ -462,22 +479,39 @@ do{
         $indicePalabra = solicitarIndiceEntre($min,--$max);
         $cantIntentos = CANT_INTENTOS;
         jugar($coleccionPalabras, $indicePalabra, $cantIntentos);
+        $coleccionDePalabras = cargarPalabras();
+        $minimo = 0;
+        $maximo = count($coleccionDePalabras);
+        $indiceDePalabra = solicitarIndiceEntre($minmo,--$maximo);
+        $cantidadDeIntentos = CANT_INTENTOS;
+        jugar($coleccionDePalabras, $indiceDePalabra, $cantidadDeIntentos);
+
         break;
     case 3: //Agregar una palabra al listado
-       $coleccionPalabras = cargarPalabras();
-        noExistePalabra($coleccionPalabras);
+       $coleccionDePalabras = cargarPalabras();
+        noExistePalabra($coleccionDePalabras);
         break;
     case 4: //Mostrar la información completa de un número de juego
-        mostrarJuego($coleccionJuegos,$coleccionPalabras,$indiceJuego);
+        $coleccionDeJuegosMostrar = cargarJuegos();
+        $minimoMostrar = 0;
+        $maximoMostrar = count($coleccionDeJuegosMostrar);
+        $coleccionDePalabrasMostrar = cargarPalabras();
+        $indiceJuegoMostrar = solicitarIndiceEntre($minimoMostrar,--$maximoMostrar);
+        mostrarJuego($coleccionDeJuegosMostrar,$coleccionDePalabrasMostrar,$indiceJuegoMostrar);
         break;
     case 5: //Mostrar la información completa del primer juego con más puntaje
-
+        $coleccionDeJuegos = cargarJuegos();
+        puntajeMayor($coleccionDeJuegos);
         break;
     case 6: //Mostrar la información completa del primer juego que supere un puntaje indicado por el usuario
-
+        echo "\n Ingrese un puntaje: ";
+        $coleccionDeJuegos = cargarJuegos();
+        $puntajeBrindado = trim(fgets(STDIN)); 
+        superePuntajeSolicitado($coleccionDeJuegos,$puntajeBrindado);
         break;
     case 7: //Mostrar la lista de palabras ordenada por orden alfabetico
-
+        $coleccionDePalabras = cargarPalabras();
+        ordenarPalabrasAlfabeticamente($coleccionDePalabras);
         break;
     }
 }while($opcion != 8);
