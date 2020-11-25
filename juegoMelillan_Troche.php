@@ -434,12 +434,12 @@ function mostrarJuego($coleccionJuegos,$coleccionPalabras,$indiceJuego){
         echo "\n";
 }
 
-// (18)
 /**
  * Refleja el mayor puntaje de la partida.
  * @param array $coleccionJuegos
  * @return int
  */
+// (18)
 function puntajeMayor($coleccionJuegos){
     //Variables internas: array $contadorPuntaje, $coleccionDePuntos,
     //Variables internas int $auxiliarPuntajeMayor, $auxiliarPuntos.
@@ -461,7 +461,6 @@ function puntajeMayor($coleccionJuegos){
     return $indiceDePuntajes;
 }
 
- // (19)
 /**
  * Refleja el puntaje mayor al que solicito el usuario.
  * @param array $coleccionJuegos.
@@ -489,14 +488,15 @@ function superePuntajeSolicitado($coleccionJuegos,$puntajeSolicitado){
     }
     return $indicePuntaje;
 }
-// (20)
 /**
  * Ordena la lista de palabras en orden alfabetico
  * @param array $coleccionPalabras
  */
+// (20)
 function ordenarPalabrasAlfabeticamente($coleccionPalabras){
-    sort($coleccionPalabras);
-    print_r ($coleccionPalabras); // La función print_r imprime información sobre la variable de forma "legible para humanos"
+    sort($coleccionPalabras); // Ordena los elementos de menor a mayor. 
+                                                    // Elimina cualquier clave existente y asigna nuevos índices a partir del 0
+    print_r ($coleccionPalabras); // print_r — Imprime información "legible para humanos" sobre una variable.
 }
 
 /************************************************/
@@ -566,7 +566,7 @@ do{
         $indiceDeJuego = puntajeMayor($coleccionJuegosPrincipal); // A partir del arreglo de juegos, encuentra la partida con mayor puntuación 
                                                                                                                         // y brinda el indice al programa.
         mostrarJuego($coleccionJuegosPrincipal, $coleccionDePalabrasPrincipal, $indiceDeJuego); // Muestra la partida con mayor puntaje del juego 
-                                                                                            // utilizando el indice brindado anteriormente.
+                                                                                             // utilizando el indice brindado anteriormente.
         break;
 
     case 6: //Mostrar la información completa del primer juego que supere un puntaje indicado por el usuario
@@ -582,7 +582,7 @@ do{
     case 7: //Mostrar la lista de palabras ordenada por orden alfabetico
 
         $coleccionDePalabrasPrincipal = $coleccionDePalabrasPrincipal;  // Se actualizan los valores ingresados en el case 3, para agregarlos a la lista
-                                                                      // en la cual se ordenará alfabeticamente. 
+                                                                                            // en la cual se ordenará alfabeticamente. 
         ordenarPalabrasAlfabeticamente($coleccionDePalabrasPrincipal);
         break;
 
