@@ -441,20 +441,21 @@ function mostrarJuego($coleccionJuegos,$coleccionPalabras,$indiceJuego){
  */
 function puntajeMayor($coleccionJuegos){
     //Variables internas: array $contadorPuntaje, $coleccionDePuntos,
-    //Variables internas int $auxiliarPuntajeMayor.
+    //Variables internas int $auxiliarPuntajeMayor, $auxiliarPuntos.
     //Variables internas: boolean $maximoPuntaje.
     $maximoPuntaje = false;
+    $auxiliarPuntos = 0;
     $contadorPuntaje = count($coleccionJuegos);
-    $coleccionDePuntos = $coleccionJuegos[$auxiliarPuntajeMayor]["puntos"];
+    $coleccionDePuntos = $coleccionJuegos[$auxiliarPuntos]["puntos"];
     $auxiliarPuntajeMayor = 0;
-    while ($auxiliarPuntajeMayor < $contadorPuntaje && !$maximoPuntaje ){ // Recorrido de arreglo parcial para encontrar al mayor puntaje.
+    while ($auxiliarPuntos < $contadorPuntaje && !$maximoPuntaje ){ // Recorrido de arreglo parcial para encontrar al mayor puntaje.
         if ( $coleccionDePuntos > $auxiliarPuntajeMayor) {
             $auxiliarPuntajeMayor = $coleccionDePuntos;
             $maximoPuntaje = true;
-            $indiceDePuntajes=  $auxiliarPuntajeMayor;
+            $indiceDePuntajes=  $auxiliarPuntos;
         }   
-        $auxiliarPuntajeMayor++;
-        $coleccionDePuntos = $coleccionJuegos[$auxiliarPuntajeMayor]["puntos"];
+        $auxiliarPuntos++;
+        $coleccionDePuntos = $coleccionJuegos[$auxiliarPuntos]["puntos"];
         }
     return $indiceDePuntajes;
 }
@@ -555,6 +556,7 @@ do{
 
         $maximoMostrar = count($coleccionJuegosPrincipal); 
         $indiceJuegoMostrar = solicitarIndiceEntre($minimoGeneral,--$maximoMostrar); 
+        echo "\n--------------------------------------------------------------\n";
         mostrarJuego($coleccionJuegosPrincipal , $coleccionDePalabrasPrincipal , $indiceJuegoMostrar); // Muestra la partida que el usuario eligió.
         break;
 
