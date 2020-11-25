@@ -471,11 +471,15 @@ function superePuntajeSolicitado($coleccionJuegos,$puntajeSolicitado){
         if ($puntajeSolicitado <= 99){
             $n = count($coleccionJuegos);
             $i = 0;
-            while ($i < $n && $coleccionJuegos[$i]["puntos"] < $puntajeSolicitado) {
-                $i++;
-
+            $maximo = false;
+            while ($i < $n &&  !$maximo) {
+                $maximo = true;
+                $puntajeSolicitado = $puntosObtenidos;
+                $indiceJuego = $mostrarJuegoPuntaje;
+                echo $mostrarJuegoPuntaje;
                 }
-        $mostrarJuegoPuntaje = mostrarJuego($coleccionJuegos, $coleccionDePalabrasPuntaje, $indiceDeJuego);
+        $i++;
+       // $mostrarJuegoPuntaje = mostrarJuego($coleccionJuegos, $coleccionDePalabrasPuntaje, $indiceDeJuego);
         }else{
             $mostrarJuegoPuntaje = -1;
             echo "  \n"."           ".$mostrarJuegoPuntaje."\n"."\n";
