@@ -147,7 +147,7 @@ function noExistePalabra($coleccionPalabras){
                 echo "\n Ingrese los puntos: ";
                 $puntosExiste = trim(fgets(STDIN));
                 
-                array_push($coleccionPalabras, array("palabra" => $palabraExiste,"pista" => $pistaExiste,"puntosPalabra" => $puntosExiste));
+                array_push($coleccionPalabras, array("palabra" => $palabraExiste,"pista" => $pistaExiste,"puntosPalabra" => $puntosExiste)); // array_push — Inserta uno o más elementos al final de un array
                 /*
                 $coleccionPalabras[$contador]["palabra"] = $palabraExiste;
                 $coleccionPalabras[$contador]["pista"] = $pistaExiste;
@@ -530,7 +530,7 @@ do{
         $maximoAleatorio = count($coleccionDePalabrasPrincipal); 
         $indicePalabraAleatoria =  indiceAleatorioEntre($minimoGeneral,--$maximoAleatorio); // Elige un indice aleatorio entre los indices que existen.
         $puntajeActual =  jugar($coleccionDePalabrasPrincipal, $indicePalabraAleatoria, $cantidadDeIntentos); 
-        array_push($coleccionJuegosPrincipal, array("puntos"=> $puntajeActual, "indicePalabra" => $indicePalabraAleatoria));
+        array_push($coleccionJuegosPrincipal, array("puntos"=> $puntajeActual, "indicePalabra" => $indicePalabraAleatoria));  // array_push — Inserta uno o más elementos al final de un array
         break;
 
     case 2: //Jugar con una palabra elegida.
