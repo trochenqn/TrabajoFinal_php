@@ -263,6 +263,7 @@ function stringLetrasDescubiertas($coleccionLetras){
     $auxiliarLetrasDescubiertas = 0;
     $contadorLetras = count($coleccionLetras);
     $contadorLetras = -- $contadorLetras;
+    //print_r($coleccionLetras[$auxiliarLetrasDescubiertas ]["descubierta"]); // print_r — Imprime información "legible para humanos" sobre una variable.
     while ($auxiliarLetrasDescubiertas <=  $contadorLetras ){
         if ( $coleccionLetras[$auxiliarLetrasDescubiertas]["descubierta"]){
             $pal .= $coleccionLetras[$auxiliarLetrasDescubiertas]["letra"];
@@ -313,7 +314,7 @@ function jugar($coleccionPalabras, $indicePalabra, $cantIntentos){
             echo "\n La letra ". $letraSolicitadaJugar ." PERTENECE a la palabra ";
             }else{
             echo "\n La letra ". $letraSolicitadaJugar ." NO pertenece a la palabra. Quedan ".--$cantIntentos. " intentos \n";
-                if ($cantIntentos == 5){ // Dibujo grafico de los intentos que van quedando y como eso transforma al muñeco.
+              if ($cantIntentos == 5){ // Dibujo grafico de los intentos que van quedando y como eso transforma al muñeco.
                     echo "                        +---+ "."\n";
                     echo "                        |   |"."\n";
                     echo "                        o   |"."\n";
@@ -351,6 +352,7 @@ function jugar($coleccionPalabras, $indicePalabra, $cantIntentos){
                     echo "                            |"."\n";
                  }
             }
+            echo ("\n  ");
         echo "\n Palabra a Descubrir: ". stringLetrasDescubiertas($coleccionLetrasJugar);
         echo "\n ---------------------------------------------- \n";
         $palabraFueDescubierta = palabraDescubierta($coleccionLetrasJugar);
@@ -477,7 +479,6 @@ function superePuntajeSolicitado($coleccionJuegos,$puntajeSolicitado){
         $auxiliarSuperarPuntaje++;
     }
     return $indicePuntaje;
-
 }
 /**
  * Ordena la lista de palabras en orden alfabetico
@@ -559,7 +560,7 @@ do{
         $indiceDeJuego = puntajeMayor($coleccionJuegosPrincipal); // A partir del arreglo de juegos, encuentra la partida con mayor puntuación 
                                                                                                                         // y brinda el indice al programa.
         mostrarJuego($coleccionJuegosPrincipal, $coleccionDePalabrasPrincipal, $indiceDeJuego); // Muestra la partida con mayor puntaje del juego 
-                                                                                                                                                                                // utilizando el indice brindado anteriormente.
+                                                                                             // utilizando el indice brindado anteriormente.
         break;
 
     case 6: //Mostrar la información completa del primer juego que supere un puntaje indicado por el usuario
@@ -573,7 +574,7 @@ do{
     case 7: //Mostrar la lista de palabras ordenada por orden alfabetico
 
         $coleccionDePalabrasPrincipal = $coleccionDePalabrasPrincipal;  // Se actualizan los valores ingresados en el case 3, para agregarlos a la lista
-                                                                                                                                // en la cual se ordenará alfabeticamente. 
+                                                                                            // en la cual se ordenará alfabeticamente. 
         ordenarPalabrasAlfabeticamente($coleccionDePalabrasPrincipal);
         break;
 
