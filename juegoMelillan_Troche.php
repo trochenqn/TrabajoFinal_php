@@ -424,16 +424,22 @@ function mostrarPalabra($coleccionPalabras,$indicePalabra){
 // (17)
 function mostrarJuego($coleccionJuegos,$coleccionPalabras,$indiceJuego){
     //array("puntos"=> 8, "indicePalabra" => 1)
-    echo "\n";
-    echo "  *********************************************************** \n";
-    echo "  *                                                         * \n";
-    echo "  *              <-<-< Juego ".$indiceJuego." >->->\n";
-    echo "  *             Puntos ganados: ".$coleccionJuegos[$indiceJuego]["puntos"]."\n";
-    echo "  *             Información de la palabra: \n";
-    mostrarPalabra($coleccionPalabras,$coleccionJuegos[$indiceJuego]["indicePalabra"]);
-    echo "  *                                                         * \n";
-    echo "  *********************************************************** \n";
-    echo "\n";
+    if ($indiceJuego == -1){
+        echo "  *********************************************************** \n";
+        echo "  *                      No hay juego                       * \n";
+        echo "  *********************************************************** \n";
+    }else{
+        echo "\n";
+        echo "  *********************************************************** \n";
+        echo "  *                                                         * \n";
+        echo "  *              <-<-< Juego ".$indiceJuego." >->->\n";
+        echo "  *             Puntos ganados: ".$coleccionJuegos[$indiceJuego]["puntos"]."\n";
+        echo "  *             Información de la palabra: \n";
+        mostrarPalabra($coleccionPalabras,$coleccionJuegos[$indiceJuego]["indicePalabra"]);
+        echo "  *                                                         * \n";
+        echo "  *********************************************************** \n";
+        echo "\n";
+    }
 }
 
 /**
@@ -530,7 +536,7 @@ do{
         $maximoAleatorio = count($coleccionDePalabrasPrincipal); 
         $indicePalabraAleatoria =  indiceAleatorioEntre($minimoGeneral,--$maximoAleatorio); // Elige un indice aleatorio entre los indices que existen.
         $puntajeActual =  jugar($coleccionDePalabrasPrincipal, $indicePalabraAleatoria, $cantidadDeIntentos); 
-        array_push($coleccionJuegosPrincipal, array("puntos"=> $puntajeActual, "indicePalabra" => $indicePalabraAleatoria));  // array_push — Inserta uno o más elementos al final de un array
+        array_push($coleccionJuegosPrincipal, array("puntos"=> $puntajeActual, "indicePalabra" => $indicePalabraAleatoria)); // array_push — Inserta uno o más elementos al final de un array
         break;
 
     case 2: //Jugar con una palabra elegida.
